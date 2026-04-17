@@ -1,7 +1,5 @@
 package domain;
 
-import java.time.LocalDate;
-
 public class VehiculoCombustible extends Vehiculo {
     private double kilometrosPorLitro;
     private double litrosExtra;
@@ -23,8 +21,13 @@ public class VehiculoCombustible extends Vehiculo {
 
     @Override
     public double calcularConsumo(double kilometros) {
-        double extras = LocalDate.now().getYear() - anio > 5 ? (kilometros / 15) * litrosExtra : 0;
-        double total = (kilometros / kilometrosPorLitro) + extras;
+        double total = kilometros/kilometrosPorLitro;
+        
+        if(2026-anio > 5)
+        {
+            total += kilometros/15*litrosExtra; 
+        }
         return total;
     }
+
 }

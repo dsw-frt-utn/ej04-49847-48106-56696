@@ -56,7 +56,6 @@ public class ListarVehiculosView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Logística - Listar Vehículos");
-        setPreferredSize(new java.awt.Dimension(640, 480));
         setSize(new java.awt.Dimension(640, 480));
 
         vehiculosGrid.setModel(new javax.swing.table.DefaultTableModel(
@@ -156,17 +155,24 @@ public class ListarVehiculosView extends javax.swing.JFrame {
 
     private void calcularConsumosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularConsumosActionPerformed
          TableModel table = vehiculosGrid.getModel();
-         Map<String, Double> lista = new HashMap<>();
-         for(int i=0;i< table.getRowCount();i++){
-             lista.put((String)table.getValueAt(i, 0), (Double)table.getValueAt(i, 8));
-         }
-         double[] consumos = Controlador.calcularConsumos(lista);
-         totalConsumoElectricosValue.setText(String.format("%.2f%n kWh", consumos[0]));
-         totalConsumoCombustibleValue.setText(String.format("%.2f%n litros", consumos[1]));
+Map<String, Double> lista = new HashMap<>();
+
+for(int i=0;i<table.getRowCount();i++){
+    lista.put(
+        table.getValueAt(i,0).toString(),
+        Double.parseDouble(table.getValueAt(i,8).toString())
+    );
+}
+
+double[] consumos = Controlador.calcularConsumos(lista);
+
+totalConsumoElectricosValue.setText(String.format("%.2f kWh", consumos[0]));
+totalConsumoCombustibleValue.setText(String.format("%.2f litros", consumos[1]));
     }//GEN-LAST:event_calcularConsumosActionPerformed
 
     /**
-     * @param args the command line arguments
+     * @param args
+     * the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -190,6 +196,8 @@ public class ListarVehiculosView extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(ListarVehiculosView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

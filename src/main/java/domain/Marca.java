@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package domain;
 
 /**
@@ -17,8 +14,9 @@ public class Marca {
         this.pais = pais;
     }
 
-    
-
+    public Marca() {
+    }
+   
     public Marca(String descripcion) {
         this.nombre = descripcion;
     }
@@ -26,4 +24,5 @@ public class Marca {
     public String getDescripcion() {
         return nombre;
     }
+    
 }
