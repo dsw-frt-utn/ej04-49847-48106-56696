@@ -75,7 +75,7 @@ public class Persistencia {
         inicializarResponsables();
         inicializarSucursales();
         inicializarMarcas();
-        //inicializarVehiculos();
+       
         
     }
 

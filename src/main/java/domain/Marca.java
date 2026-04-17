@@ -3,7 +3,7 @@ package domain;
 
 /**
  *
- * @author pc
+ * @author Fernando Elias
  */
 public class Marca {
      private String nombre;
